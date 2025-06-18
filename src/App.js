@@ -111,7 +111,7 @@ export default function App() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-5xl md:text-6xl font-bold text-[#2e2b32] my-4"
+              className="text-3xl md:text-6xl font-bold text-[#2e2b32] my-4"
             >
               Welcome to LawBot
             </motion.h2>
@@ -119,9 +119,9 @@ export default function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-2xl md:text-3xl text-[#2e2b32] max-w-2xl my-8 text-justify"
+              className="text-xl md:text-2xl text-[#2e2b32] max-w-xl my-8 text-justify"
             >
-              We are building a smart legal assistant chatbot — a virtual helper designed for newcomers and residents in Ireland. It answers legal questions using trusted sources and government data.
+              We are creating a smart legal assistant chatbot—a virtual helper that you can chat with—designed especially for newcomers and residents in Ireland who have legal questions. This chatbot uses trusted information from Irish government websites and legal sources to help people understand their rights, laws, and what to do in common legal situations
             </motion.p>
             <button className="bg-[#00906d] text-white px-8 text-xl md:text-2xl py-4 rounded-xl hover:bg-emerald-800 shadow-lg transition">
               Learn more
@@ -194,7 +194,7 @@ export default function App() {
 
         {/* Members Carousel */}
        <section id="members" className="min-h-screen px-4 py-16 bg-[#f1f0f4]">
-        <h3 className="text-3xl font-semibold text-center mb-8 text-[#00906d]">Members</h3>
+        <h3 className="text-3xl font-semibold text-center mb-8 text-[#00906d]">Our Team</h3>
         <Carousel responsive={responsive} infinite autoPlay autoPlaySpeed={3000} itemClass="px-4">
           {members.map((mem, index) => (
             <div
