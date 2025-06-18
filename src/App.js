@@ -33,7 +33,7 @@ export default function App() {
     {
       name: "Balaji V S",
       role: "AI Developer and Mentor",
-      bio: "Leads the design and development of the AI-powered legal chatbot, focusing on model integration, retrieval systems and response generation. Also assists and coordinates the entire team, providing technical guidance, aligning tasks, and ensuring smooth collaboration.",
+      bio: "Leads the development of an AI legal chatbot, focusing on model integration, retrieval, and response generation. Also coordinates the team, offering technical guidance.",
       image: mem2
     },
     {
@@ -111,7 +111,7 @@ export default function App() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-3xl md:text-6xl font-bold text-[#2e2b32] my-4"
+              className="text-3xl md:text-6xl font-bold text-[#2e2b32] my-4 mt-10"
             >
               Welcome to LawBot
             </motion.h2>
@@ -199,18 +199,22 @@ export default function App() {
           {members.map((mem, index) => (
             <div
               key={index}
-              className="w-full max-w-sm mx-auto rounded-3xl overflow-hidden shadow-xl transition duration-300 hover:scale-105 bg-[#e5e4e9] flex flex-col h-[520px]" // Fixed card height
+              className="w-full max-w-sm mx-auto rounded-3xl overflow-hidden shadow-xl transition duration-300 hover:scale-105 bg-[#e5e4e9] flex flex-col h-[480px]"
             >
-              <div className="w-full h-64 flex items-center justify-center bg-white">
-                <img src={mem.image} alt={mem.name} className="object-contain w-full h-full p-4 rounded-xl" />
+              <div className="w-full h-64 flex items-center justify-center bg-[#c0e8e0]">
+                <img
+                  src={mem.image}
+                  alt={mem.name}
+                  className="object-contain w-full h-full p-4 rounded-xl"
+                />
               </div>
-              <div className="p-6 text-center text-[#2e2b32] flex flex-col justify-between flex-1">
+              <div className="p-6 text-center text-[#2e2b32] flex flex-col flex-1 gap-2">
                 <div>
                   <h4 className="text-2xl font-bold">{mem.name}</h4>
-                  <p className="text-lg text-[#00906d] font-medium">{mem.role}</p>
+                  <p className="text-lg text-[#00906d] font-medium -mt-1">{mem.role}</p>
                 </div>
                 <p
-                  className="text-base text-justify overflow-hidden"
+                  className="text-base text-justify overflow-hidden mt-2"
                   style={{
                     display: '-webkit-box',
                     WebkitLineClamp: 5,
@@ -222,6 +226,7 @@ export default function App() {
                 </p>
               </div>
             </div>
+
           ))}
         </Carousel>
       </section>
