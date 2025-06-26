@@ -14,6 +14,9 @@ import mem8 from './members/dinesh.jpg';
 import mem9 from './members/megashyam.png';
 import mem10 from './members/Sankara Narayanan K.jpg';
 import mem11 from './members/venkatesh.jpg';
+import mem12 from './members/Vanessa Lobo.png';
+import res1 from './responses/res1.jpg';
+import res2 from './responses/res2.jpg';
 
 export default function App() {
   const responsive = {
@@ -23,6 +26,23 @@ export default function App() {
     mobile: { breakpoint: { max: 640, min: 0 }, items: 1 },
   };
 
+  const response_responsive = {
+    superLargeDesktop: { breakpoint: { max: 4000, min: 1280 }, items: 2 },
+    desktop: { breakpoint: { max: 1280, min: 768 }, items: 2 },
+    tablet: { breakpoint: { max: 768, min: 640 }, items: 1 },
+    mobile: { breakpoint: { max: 640, min: 0 }, items: 1 },
+  }
+
+  const responses = [
+    {
+      "desc": "You've just been arrested — now what? \n LawBot’s got your back: Stay calm, demand to know why you’re being held, and request the official paperwork — offense details, penalty, and the full story. Your rights matter. \n Call your lawyer, or name one — fast! \n You have the right to legal muscle. Use it.",
+      image: res1
+    },
+    {
+      desc: "See something wrong? \n Don’t stay silent. Dial 999 or 112 if it’s urgent. If it can wait, reach your local Garda station or head online to report it from the comfort of your screen. Justice starts with your voice. \n Be detailed, be brave — or stay anonymous. \n Share the when, where, and what.",
+      image: res2
+    },
+  ]
   const members = [
     {
       name: "Nirmalkumar Palanisamy",
@@ -61,6 +81,12 @@ export default function App() {
       image: mem6
     },
     {
+      name: "Vanessa",
+      role: "UI/UX Developer",
+      bio: "Designs intuitive and user-friendly interfaces, focusing on enhancing user experience through thoughtful layout, accessibility, and visual aesthetics across the project.",
+      image: mem12
+    },
+    {
       name: "Akash G",
       role: "Frontend Developer",
       bio: "Developed user-friendly interfaces to present Irish legal information clearly, ensuring seamless interaction with the AI-powered chatbot.",
@@ -92,9 +118,9 @@ export default function App() {
     },
   ];
 
+
   return (
     <div className="bg-[#b4b1ba] text-[#2e2b32]">
-      {/* Navbar */}
       <nav className="w-full bg-[#64626a] shadow-md fixed top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <img src="/logo.png" alt="LawBot Logo" className="h-10 w-10" />
@@ -102,9 +128,7 @@ export default function App() {
           <div className="text-white">Your Legal Assistant</div>
         </div>
       </nav>
-
       <div className="pt-6">
-        {/* Hero */}
         <section className="min-h-screen px-6 md:px-20 gap-6 flex flex-col md:flex-row items-center justify-center bg-[#f1f0f4]">
           <div className="md:w-1/2 text-center md:text-left">
             <motion.h2
@@ -121,7 +145,7 @@ export default function App() {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="text-xl md:text-2xl text-[#2e2b32] max-w-xl my-8 text-justify"
             >
-              We are creating a smart legal assistant chatbot—a virtual helper that you can chat with—designed especially for newcomers and residents in Ireland who have legal questions. This chatbot uses trusted information from Irish government websites and legal sources to help people understand their rights, laws, and what to do in common legal situations
+              We are creating a smart legal assistant chatbot—a virtual helper that you can chat with designed especially for newcomers and residents in Ireland who have legal questions. This chatbot uses trusted information from Irish government websites and legal sources to help people understand their rights, laws, and what to do in common legal situations
             </motion.p>
             <button className="bg-[#00906d] text-white px-8 text-xl md:text-2xl py-4 rounded-xl hover:bg-emerald-800 shadow-lg transition">
               Learn more
@@ -137,8 +161,6 @@ export default function App() {
             <img src={hero} alt="Ireland Government" className="w-full rounded-2xl shadow-2xl" />
           </motion.div>
         </section>
-
-        {/* What Section */}
         <section id="what" className="py-12 bg-[#f6f5f8]">
           <h3 className="text-3xl font-semibold text-center mb-8 text-[#00906d]">What are we building</h3>
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 px-4">
@@ -155,8 +177,6 @@ export default function App() {
             ))}
           </div>
         </section>
-
-        {/* Who Section */}
         <section id="who" className="py-12 bg-[#f1f0f4]">
           <h3 className="text-3xl font-semibold text-center mb-8 text-[#00906d]">Who it helps</h3>
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 px-4">
@@ -174,8 +194,6 @@ export default function App() {
             ))}
           </div>
         </section>
-
-        {/* Why Section */}
         <section id="why" className="py-12 bg-[#f6f5f8]">
           <h3 className="text-3xl font-semibold text-center mb-8 text-[#00906d]">Why it matters</h3>
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 px-4">
@@ -191,16 +209,59 @@ export default function App() {
             ))}
           </div>
         </section>
+        <section id="response" className="min-h-screen px-4 py-16 bg-[#f1f0f4]">
+          <h3 className="text-3xl font-semibold text-center mb-8 text-[#00906d]">Response by lawbot</h3>
+          <Carousel responsive={response_responsive} infinite autoPlay autoPlaySpeed={3000} itemClass="px-4">
+            {responses.map((res, index) => (
+              <div
+                key={index}
+                className="w-full max-w-xl mx-auto rounded-3xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-105 bg-white flex flex-col"
+              >
+                {/* Image */}
+                <div className="w-full h-64 flex items-center justify-center bg-teal-50">
+                  <img
+                    src={res.image}
+                    alt={`response-${index}`}
+                    className="object-contain w-full h-full p-4 rounded-xl"
+                  />
+                </div>
 
-        {/* Members Carousel */}
-       <section id="members" className="min-h-screen px-4 py-16 bg-[#f1f0f4]">
-        <h3 className="text-3xl font-semibold text-center mb-8 text-[#00906d]">Our Team</h3>
-        <Carousel responsive={responsive} infinite autoPlay autoPlaySpeed={3000} itemClass="px-4">
-          {members.map((mem, index) => (
-            <div
-              key={index}
-              className="w-full max-w-sm mx-auto rounded-3xl overflow-hidden shadow-xl transition duration-300 hover:scale-105 bg-[#e5e4e9] flex flex-col h-[480px]"
-            >
+                {/* Text content */}
+                <div className="p-6 flex-1 text-left space-y-5">
+                  {/* Headline */}
+                  <h4 className="text-2xl font-bold text-teal-600">
+                    {index === 0
+                      ? "Arrested in Ireland? Stay Calm & Informed"
+                      : "See Something Wrong? Speak Up Safely"}
+                  </h4>
+
+                  {/* Sub-headline or lead sentence */}
+                  <p className="text-lg font-medium text-gray-700">
+                    {res.desc.split('\n')[0]}
+                  </p>
+
+                  {/* Body paragraphs */}
+                  {res.desc
+                    .split('\n')
+                    .slice(1)
+                    .map((line, i) => (
+                      <p key={i} className="text-base text-gray-600 leading-relaxed">
+                        {line.trim()}
+                      </p>
+                    ))}
+                </div>
+              </div>
+            ))}
+        </Carousel>
+      </section>
+        <section id="members" className="min-h-screen px-4 py-16 bg-[#f1f0f4]">
+          <h3 className="text-3xl font-semibold text-center mb-8 text-[#00906d]">Our Team</h3>
+          <Carousel responsive={responsive} infinite autoPlay autoPlaySpeed={3000} itemClass="px-4">
+            {members.map((mem, index) => (
+              <div
+                key={index}
+                className="w-full max-w-sm mx-auto rounded-3xl overflow-hidden shadow-xl transition duration-300 hover:scale-105 bg-[#e5e4e9] flex flex-col h-[480px]"
+              >
               <div className="w-full h-64 flex items-center justify-center bg-[#c0e8e0]">
                 <img
                   src={mem.image}
@@ -226,23 +287,19 @@ export default function App() {
                 </p>
               </div>
             </div>
-
           ))}
         </Carousel>
       </section>
-
-
-        {/* Footer */}
-        <footer className="bg-[#64626a] text-white py-8 px-4">
-          <div className="max-w-7xl mx-auto text-xl flex flex-col md:flex-row items-center justify-between">
-            <p>© {new Date().getFullYear()} LawBot. All rights reserved.</p>
-            <div className="flex space-x-4 gap-6 mt-4 md:mt-0 text-2xl text-white">
-              <i className="fa-brands fa-linkedin"></i>
-              <i className="fa-brands fa-x-twitter"></i>
-              <i className="fa-brands fa-github"></i>
-            </div>
+      <footer className="bg-[#64626a] text-white py-8 px-4">
+        <div className="max-w-7xl mx-auto text-xl flex flex-col md:flex-row items-center justify-between">
+          <p>© {new Date().getFullYear()} LawBot. All rights reserved.</p>
+          <div className="flex space-x-4 gap-6 mt-4 md:mt-0 text-2xl text-white">
+            <i className="fa-brands fa-linkedin"></i>
+            <i className="fa-brands fa-x-twitter"></i>
+            <i className="fa-brands fa-github"></i>
           </div>
-        </footer>
+        </div>
+      </footer>
       </div>
     </div>
   );
